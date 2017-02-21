@@ -1,0 +1,22 @@
+{
+  "name": "@aabenoja/david-reporter",
+  "version": "0.0.1",
+  "description": "Simple david dependency report generator",
+  "bin": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aabenoja/david-reporter.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aabenoja/david-reporter/issues"
+  },
+  "homepage": "https://github.com/aabenoja/david-reporter#readme",
+  "dependencies": {
+    "david": "^10.1.0"
+  }
+}
