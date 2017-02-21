@@ -1,4 +1,4 @@
-const { getDependencies } = require('david');
+import { getDependencies } from 'david';
 
 function getDependenciesAsPromised(manifest, opts = {}) {
   return new Promise((resolve, reject) => {
@@ -10,7 +10,7 @@ function getDependenciesAsPromised(manifest, opts = {}) {
   });
 }
 
-module.exports = function getAllDependencies(manifest) {
+export default function getAllDependencies(manifest) {
   return Promise.all([
     getDependenciesAsPromised(manifest),
     getDependenciesAsPromised(manifest, { dev: true })

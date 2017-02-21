@@ -4,6 +4,7 @@
   "description": "Simple david dependency report generator",
   "bin": "index.js",
   "scripts": {
+    "build": "babel src -d lib",
     "test": "mocha --compilers js:babel-register src/**/*.specs.js"
   },
   "repository": {
@@ -20,6 +21,7 @@
     "david": "^10.1.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.23.0",
     "babel-preset-env": "^1.1.8",
     "babel-register": "^6.23.0",
     "chai": "^3.5.0",
