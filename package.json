@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/aabenoja/david-reporter#readme",
   "dependencies": {
-    "david": "^10.1.0"
+    "david": "^10.1.0",
+    "yargs": "^6.6.0"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
