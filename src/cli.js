@@ -11,4 +11,4 @@ const argv = yargs
 
 const reporter = getReporter(argv.r);
 
-getDependencies(manifest).then(reporter);
+getDependencies(manifest).then(reporter).catch(() => {});
