@@ -1,4 +1,4 @@
-import { getDependencies } from 'david';
+import { getDependencies, isUpdated } from 'david';
 
 function getDependenciesAsPromised(manifest, opts = {}) {
   return new Promise((resolve, reject) => {
@@ -14,5 +14,13 @@ export default function getAllDependencies(manifest) {
   return Promise.all([
     getDependenciesAsPromised(manifest),
     getDependenciesAsPromised(manifest, { dev: true })
-  ]).then(([ deps, devDeps ]) => ({ deps, devDeps }));
+  ]).then(results => results.map(deps =>
+    Object.keys(deps).reduce((result, key) => {
+      const dep = deps[key];
+      result[key] = Object.assign({}, dep, {isUpdated: isUpdated(dep)});
+      return result;
+    }, {})
+  )).then(([ deps, devDeps ]) => {
+    return ({ deps, devDeps });
+  });
 }
