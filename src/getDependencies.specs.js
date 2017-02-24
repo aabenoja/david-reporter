@@ -8,7 +8,7 @@ describe('getDependencies', () => {
     const totalCount = Object.keys(manifest.dependencies).length
       + Object.keys(manifest.devDependencies).length;
 
-    return getDependencies(manifest).then(({ deps, devDeps }) => {
+    return getDependencies(manifest, [{}, { dev: true }]).then(({ deps, devDeps }) => {
       const allDeps = Object.assign({}, deps, devDeps);
       return Object.keys(allDeps).length;
     }).then(found => expect(found).to.equal(totalCount));

@@ -1,14 +1,12 @@
 import yargs from 'yargs';
 import getDependencies from './getDependencies';
 import getReporter from './getReporter';
+import parseTargetOptions from './parseTargetOptions';
+import cliArgs from './cli-args';
+
 const manifest = require(`${process.cwd()}/package.json`);
 
-const argv = yargs
-  .alias('r', 'reporter')
-  .describe('r', 'provide a custom reporter')
-  .string('r')
-  .argv;
+const reporter = getReporter(cliArgs.r);
+const targets = parseTargetOptions(cliArgs);
 
-const reporter = getReporter(argv.r);
-
-getDependencies(manifest).then(reporter).catch(() => {});
+getDependencies(manifest, targets).then(reporter).catch(() => {});
